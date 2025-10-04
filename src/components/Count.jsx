@@ -1,34 +1,19 @@
 import React, { useState } from 'react'
 import Button from './Button'
 
-const Count = () => {
+const Count = ({count, increment, decrement}) => {
 
-    const [count, setCount] = useState(0)
-
-    const increment = () => {
-        if(count < 10 )
-            setCount(count + 1)
-        else if(count < 20)
-            setCount(count + 5)
-        else if(count < 60)
-            setCount(count + 8)
-        else 
-            setCount(count + 12)
-    }
-
-    const decrement = () => {
-        if(count > 0)
-            setCount(count - 1)
-        else
-            setCount(0)
-    }
 
   return (
     <>
-    <h1>Counter</h1>
-    <h2>{count}</h2>
-    <Button BtnName='Increment' BtnColor='red' BtnHandle={increment}/>
-    <Button BtnName='Decrement' BtnColor='green' BtnHandle={decrement}/>
+    <div  className="bg-white p-5 shadow-2xl rounded-2xl flex flex-col justify-center items-start h-[180px] w-[270px]">
+    <h1 className='text-3xl font-bold'>Counter</h1>
+    <h2 className='text-4xl font-semibold m-2'>{count}</h2>
+    <div className='flex '>
+    <Button BtnName='Increment' BtnColor='#1E90FF' BtnHandle={increment}/>
+    <Button BtnName='Decrement' BtnColor='#B2FFFF' BtnHandle={decrement}/>
+    </div>
+    </div>
     </>
   )
 }
